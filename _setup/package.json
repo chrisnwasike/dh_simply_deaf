@@ -1,0 +1,31 @@
+{
+  "name": "dh_simply_deaf",
+  "version": "0.0.1",
+  "description": "WordPress Theme for Desire Health.",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisnwasike/dh_simply_deaf.git"
+  },
+  "author": "Chris Nwasike",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/chrisnwasike/dh_simply_deaf/issues"
+  },
+  "homepage": "https://github.com/chrisnwasike/dh_simply_deaf",
+  "dependencies": {
+    "autoprefixer": "^9.4.3",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-image": "^4.4.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "jshint": "^2.9.7"
+  }
+}
