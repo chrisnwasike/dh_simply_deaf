@@ -121,7 +121,7 @@ add_action( 'widgets_init', 'dh_simply_deaf_widgets_init' );
  */
 function dh_simply_deaf_scripts() {
 	//Custom fonts here
-	wp_enqueue_style( 'dh_simply_deaf_googlefonts', 'https://fonts.googleapis.com/css?family=Quicksand:400,700|ZCOOL+XiaoWei' );
+	wp_enqueue_style( 'dh_simply_deaf_googlefonts', dh_simply_deaf_fonts_url() );
 
 	wp_enqueue_style( 'dh_simply_deaf-style', get_stylesheet_uri() );
 
@@ -134,6 +134,69 @@ function dh_simply_deaf_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'dh_simply_deaf_scripts' );
+
+/**
+* Implement font switch for Google fonts
+*/
+function dh_simply_deaf_fonts_url() {
+	$fonts_url = '';
+	/*
+	 * Translators: If there are characters in your language that are not
+	 * supported by Libre Franklin, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$font_families = array();
+
+	$zcool_xiaowei = _x( 'on', 'ZCOOL XiaoWei font: on or off', 'dh_simply_deaf' );
+	$quicksand = _x( 'on', 'Quicksand font: on or off', 'dh_simply_deaf' );
+
+	if ( 'off' !== $zcool_xiaowei )
+	{
+		$font_families[] = 'ZCOOL+XiaoWei';
+	}
+
+	if ( 'off' !== $quicksand )
+	{
+		$font_families[] = 'Quicksand:400,700';
+	}
+
+	if ( in_array( 'on', array( $zcool_xiaowei, $quicksand ) ) )
+	{
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+
+/**
+ * Add preconnect for Google Fonts.
+ *
+ * @since Twenty Seventeen 1.0
+ *
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+function dh_simply_deaf_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'dh_simply_deaf_googlefonts', 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href' => 'https://fonts.gstatic.com',
+			'crossorigin',
+		);
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'dh_simply_deaf_resource_hints', 10, 2 );
+
+
 
 /**
  * Implement the Custom Header feature.
