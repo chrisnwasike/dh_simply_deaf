@@ -146,13 +146,12 @@ function dh_simply_deaf_fonts_url() {
 	 * into your own language.
 	 */
 	$font_families = array();
-
-	$zcool_xiaowei = _x( 'on', 'ZCOOL XiaoWei font: on or off', 'dh_simply_deaf' );
+	$cinzel = _x( 'on', 'Cinzel font: on or off', 'dh_simply_deaf' );
 	$quicksand = _x( 'on', 'Quicksand font: on or off', 'dh_simply_deaf' );
 
-	if ( 'off' !== $zcool_xiaowei )
+	if ( 'off' !== $cinzel )
 	{
-		$font_families[] = 'ZCOOL+XiaoWei';
+		$font_families[] = 'Cinzel:400,700,900';
 	}
 
 	if ( 'off' !== $quicksand )
@@ -160,7 +159,7 @@ function dh_simply_deaf_fonts_url() {
 		$font_families[] = 'Quicksand:400,700';
 	}
 
-	if ( in_array( 'on', array( $zcool_xiaowei, $quicksand ) ) )
+	if ( in_array( 'on', array( $cinzel, $quicksand ) ) )
 	{
 
 		$query_args = array(
