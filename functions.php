@@ -120,6 +120,9 @@ add_action( 'widgets_init', 'dh_simply_deaf_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dh_simply_deaf_scripts() {
+	//Custom fonts here
+	wp_enqueue_style( 'dh_simply_deaf_googlefonts', 'https://fonts.googleapis.com/css?family=Quicksand:400,700|ZCOOL+XiaoWei' );
+
 	wp_enqueue_style( 'dh_simply_deaf-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'dh_simply_deaf-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -158,4 +161,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
