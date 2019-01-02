@@ -391,20 +391,20 @@ optgroup,
 textarea {
 	color: #404040;
 	font-family: "Quicksand", sans-serif;
-	font-size: 20px;
-	font-size: 1.25rem;
+	font-size: 18px;
+	font-size: 1.125rem;
 	line-height: 1.5;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
 	body,
 	button,
 	input,
 	select,
 	optgroup,
 	textarea {
-		font-size: 18px;
-		font-size: 1.125rem;
+		font-size: 20px;
+		font-size: 1.25rem;
 	}
 }
 
