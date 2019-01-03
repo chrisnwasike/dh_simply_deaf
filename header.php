@@ -26,8 +26,12 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
+			<?php the_custom_logo(); ?>
+
+			<div class="site-branding__text">
+
 			<?php
-			the_custom_logo();
+
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -42,6 +46,8 @@
 				?>
 				<p class="site-description"><?php echo $dh_simply_deaf_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
+
+		</div><!-- .site-branding__text -->
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
@@ -54,5 +60,9 @@
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+	<div class="header-image">
+		<?php if ( is_front_page() && is_home() ) : the_header_image_tag(); endif; ?>
+	</div>
 
 	<div id="content" class="site-content">
